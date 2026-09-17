@@ -1,77 +1,115 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-# Ticket-Management
-Task / Ticket Management Web Application using Laravel. 
-=======
->>>>>>> 9850933
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Markdown# TicketDesk Enterprise — Support & Task Dispatching System
+
+A modern, role-based Ticket & Task Management System built with Laravel. The platform provides distinct portal workflows for Administrators and Staff members, validated data pipelines, soft-delete data safety, and a dedicated Sanctum REST API.
+
+---
+
+## 🌟 Key Features
+
+* **Role-Based Access Control (RBAC):** Explicit role separation (`admin` and `staff`) guarded via custom `role` route middleware.
+* **Administrative Control Hub:**
+  * Complete CRUD for staff management (create, update, soft-delete).
+  * Task dispatching and reassignment across active staff members.
+  * Real-time search by task title/keyword.
+* **Staff Workspace:**
+  * Overview metrics tracking assigned, pending, and completed tasks.
+  * Fast, single-click inline operational status transitions (`Open` / `Completed`).
+  * Self-service profile management with phone validation and locked login email.
+* **Security & Validation:**
+  * Strict unique email formatting via RFC/DNS checks.
+  * Contact numbers strictly constrained to 10 numeric digits.
+  * Minimum 8-character password enforcement.
+* **Data Safety:** Laravel Eloquent `SoftDeletes` implemented across all primary records.
+* **REST API Suite:** Laravel Sanctum token authentication with JSON responses covering listing, creation, and status dispatching.
+* **UI/UX:** Dark slate theme with indigo glow accents and custom Bootstrap 5 scaffolding.
+
+---
+
+## 🚀 Quick Setup & Installation
+
+### 1. Prerequisites
+* PHP >= 8.1
+* Composer
+* MySQL / MariaDB
+
+### 2. Clone the Repository
+```bash
+git clone [https://github.com/PrajulVP/Ticket-Management.git](https://github.com/PrajulVP/Ticket-Management.git)
+cd Ticket-Management
+
+
+3. Install DependenciesBash
+
+composer install
+
+4. Environment Configuration
+
+Copy .env.example to .env:
+
+    cp .env.example .env
+
+Generate the application encryption key:
+    php artisan key:generate
+
+Configure your database credentials inside .env:
+
+Code snippet
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=ticket_management
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+
+5. Run Migrations & Seeders
+    
+    Execute migrations alongside database seeders to populate initial admin and staff credentials:
+    
+    php artisan migrate:fresh --seed
+
+
+6. Run the Application
+    
+    php artisan serve
+
+    Access the application at http://127.0.0.1:8000.
+
+
+## 🖼️ Application Screenshots
+
+### Admin Portal
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <b>Admin Task Operations & Management</b><br>
+  <img src="screenshots/admin_tasks.png" alt="Admin Task Operations" width="850" style="border-radius: 10px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 25px;">
 </p>
 
-## About Laravel
+<p align="center">
+  <b>Staff Directory & Registration</b><br>
+  <img src="screenshots/admin_staff.png" alt="Staff Directory" width="850" style="border-radius: 10px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 25px;">
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Staff Portal
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center">
+  <b>Staff Overview Dashboard</b><br>
+  <img src="screenshots/staff_dashboard.png" alt="Staff Dashboard" width="850" style="border-radius: 10px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 25px;">
+</p>
 
-## Learning Laravel
+<p align="center">
+  <b>My Task Center (Status Transitions)</b><br>
+  <img src="screenshots/staff_tasks.png" alt="My Task Center" width="850" style="border-radius: 10px; border: 1px solid #334155; margin-top: 10px; margin-bottom: 25px;">
+</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p align="center">
+  <b>Staff Profile Settings</b><br>
+  <img src="screenshots/staff_profile.png" alt="Staff Profile Settings" width="850" style="border-radius: 10px; border: 1px solid #334155; margin-top: 10px;">
+</p>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-<<<<<<< HEAD
-=======
->>>>>>> be0486b (Initial commit)
->>>>>>> 9850933
+📄 License
+This project is open-source software licensed under the MIT license.
